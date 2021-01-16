@@ -37,17 +37,18 @@ function ProductSmokingHero(props: WithStyles<typeof styles>) {
   const { classes } = props;
 
   return (
-    <Container className={classes.root} component="section">
-      <Button className={classes.button}>
-        <Typography variant="h4" component="span">
-          Got any questions? Need help?
-        </Typography>
-      </Button>
-      <Typography variant="subtitle1" className={classes.link}>
-        We are here to help. Get in touch!
-      </Typography>
-      <img src="/producBuoy.svg" className={classes.buoy} alt="buoy" />
-    </Container>
+      <Container className={classes.root} component="section">
+          <Button className={classes.button}
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeLWDiAocLZ2GGXBAFd3GsM2ukI42ZxhT8UBGj-ZlbLzcM78g/viewform"
+          >
+              <Typography variant="h4" component="span">
+                  Contacto
+              </Typography>
+          </Button>
+          <Typography variant="subtitle1" className={classes.link}>
+              Estamos aquí para ayudarte
+          </Typography>
+      </Container>
   );
 }
 

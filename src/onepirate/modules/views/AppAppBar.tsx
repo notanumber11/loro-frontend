@@ -52,27 +52,25 @@ function AppAppBar(props: WithStyles<typeof styles> & AppBarProps) {
             component={RouterLink}
             to="/"
           >
-            {"onepirate"}
+            {"loro"}
           </Link>
           <div className={classes.right}>
+            <Link
+                variant="h6"
+                underline="none"
+                className={clsx(classes.rightLink, classes.linkSecondary)}
+                href="https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp?hl=en&authuser=0"
+            >
+              {"Empieza a aprender"}
+            </Link>
             <Link
               color="inherit"
               variant="h6"
               underline="none"
               className={classes.rightLink}
-              component={RouterLink}
-              to="/sign-in/"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeLWDiAocLZ2GGXBAFd3GsM2ukI42ZxhT8UBGj-ZlbLzcM78g/viewform"
             >
-              {"Sign In"}
-            </Link>
-            <Link
-              variant="h6"
-              underline="none"
-              className={clsx(classes.rightLink, classes.linkSecondary)}
-              component={RouterLink}
-              to="/sign-up/"
-            >
-              {"Sign Up"}
+              {"Contacto"}
             </Link>
           </div>
         </Toolbar>

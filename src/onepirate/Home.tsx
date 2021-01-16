@@ -13,14 +13,11 @@ import AppAppBar from "./modules/views/AppAppBar";
 function Index() {
   return (
     <React.Fragment>
-      <AppAppBar />
-      <ProductHero />
-      <ProductValues />
-      <ProductCategories />
-      <ProductHowItWorks />
-      <ProductCTA />
-      <ProductSmokingHero />
-      <AppFooter />
+        <AppAppBar/>
+        <ProductHero />
+        <ProductHowItWorks />
+        <ProductSmokingHero />
+        <AppFooter />
     </React.Fragment>
   );
 }

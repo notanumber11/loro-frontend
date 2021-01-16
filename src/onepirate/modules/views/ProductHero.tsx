@@ -8,16 +8,13 @@ import {
 import Button from "../components/Button";
 import Typography from "../components/Typography";
 import ProductHeroLayout from "./ProductHeroLayout";
-import { Link as RouterLink } from "react-router-dom";
-
-const backgroundImage =
-  "https://images.unsplash.com/photo-1534854638093-bada1813ca19?auto=format&fit=crop&w=1400&q=80";
+import WordHovering from "../../../gui/WordHovering";
 
 const styles = (theme: Theme) =>
   createStyles({
     background: {
-      backgroundImage: `url(${backgroundImage})`,
-      backgroundColor: "#7fc7d9", // Average color of the background image.
+      // backgroundImage: `url(${backgroundImage})`,
+      // backgroundColor: "#7fc7d9", // Average color of the background image.
       backgroundPosition: "center",
     },
     button: {
@@ -29,48 +26,35 @@ const styles = (theme: Theme) =>
       [theme.breakpoints.up("sm")]: {
         marginTop: theme.spacing(10),
       },
+      color: "black"
     },
     more: {
       marginTop: theme.spacing(2),
-    },
+    }
   });
 
 function ProductHero(props: WithStyles<typeof styles>) {
   const { classes } = props;
 
   return (
-    <ProductHeroLayout backgroundClassName={classes.background}>
-      {/* Increase the network loading priority of the background image. */}
-      <img
-        style={{ display: "none" }}
-        src={backgroundImage}
-        alt="increase priority"
-      />
-      <Typography color="inherit" align="center" variant="h2" marked="center">
-        Upgrade your Sundays
-      </Typography>
-      <Typography
-        color="inherit"
-        align="center"
-        variant="h5"
-        className={classes.h5}
-      >
-        Enjoy secret offers up to -70% off the best luxury hotels every Sunday.
-      </Typography>
-      <Button
-        color="secondary"
-        variant="contained"
-        size="large"
-        className={classes.button}
-        component={RouterLink}
-        to="/sign-up/"
-      >
-        Register
-      </Button>
-      <Typography variant="body2" color="inherit" className={classes.more}>
-        Discover the experience
-      </Typography>
-    </ProductHeroLayout>
+      <ProductHeroLayout backgroundClassName={classes.background}>
+          <Typography  align="center" variant="h2" marked="center">
+              Aprende idiomas <WordHovering original="mientras" translated="while"/> navegas
+          </Typography>
+          <Typography align="center" variant="h5" className={classes.h5}>
+              La extensión gratuita de chrome que te ayuda a aprender idiomas sin darte ni cuenta.
+          </Typography>
+          <Button
+              color="secondary"
+              variant="contained"
+              size="large"
+              className={classes.button}
+              component="a"
+              href="https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp?hl=en&authuser=0"
+          >
+              Añade a chrome gratis
+          </Button>
+      </ProductHeroLayout>
   );
 }
 

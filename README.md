@@ -1,4 +1,9 @@
-# onepirate-CRA-typescript
+# Frontend for loro extension
+
+- Link to chrome store: [Loro extension](https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp?hl=en&authuser=0)  
+- Based on: [onepirate material ui theme](https://github.com/rothbart/onepirate-typescript)
+
+# Based on onepirate-CRA-typescript
 
 Thanks for stopping by! This project is based on the Typescript version of the [onepirate theme](https://material-ui.com/store/items/onepirate/). It uses [create-react-app](https://github.com/facebook/create-react-app) as a harness for running locally. This is intended as a quick way to play with React, Material-UI, and the onepirate theme to see if it's something you might want to use for your own work. You could also use it as an easy way to get a new project off the ground.
 

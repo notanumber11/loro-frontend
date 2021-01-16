@@ -55,6 +55,21 @@ const styles = (theme: Theme) =>
     button: {
       marginTop: theme.spacing(8),
     },
+    videoContainer: {
+      position: "relative",
+      paddingBottom: "56.25%",
+      paddingTop: "35px",
+      height: 0,
+      overflow: "hidden",
+      width: "100%"
+    },
+    youtubeFrame: {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%"
+    }
   });
 
 function ProductHowItWorks(props: WithStyles<typeof styles>) {
@@ -63,73 +78,26 @@ function ProductHowItWorks(props: WithStyles<typeof styles>) {
   return (
     <section className={classes.root}>
       <Container className={classes.container}>
-        <img
-          src="/productCurvyLines.png"
-          className={classes.curvyLines}
-          alt="curvy lines"
-        />
-        <Typography
-          variant="h4"
-          marked="center"
-          className={classes.title}
-          component="h2"
-        >
-          How it works
-        </Typography>
-        <div>
-          <Grid container spacing={5}>
-            <Grid item xs={12} md={4}>
-              <div className={classes.item}>
-                <div className={classes.number}>1.</div>
-                <img
-                  src="/productHowItWorks1.svg"
-                  alt="suitcase"
-                  className={classes.image}
-                />
-                <Typography variant="h5" align="center">
-                  Appointment every Wednesday 9am.
-                </Typography>
-              </div>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <div className={classes.item}>
-                <div className={classes.number}>2.</div>
-                <img
-                  src="/productHowItWorks2.svg"
-                  alt="graph"
-                  className={classes.image}
-                />
-                <Typography variant="h5" align="center">
-                  First come, first served. Our offers are in limited
-                  quantities, so be quick.
-                </Typography>
-              </div>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <div className={classes.item}>
-                <div className={classes.number}>3.</div>
-                <img
-                  src="/productHowItWorks3.svg"
-                  alt="clock"
-                  className={classes.image}
-                />
-                <Typography variant="h5" align="center">
-                  {"New offers every week. New experiences, new surprises. "}
-                  {"Your Sundays will no longer be alike."}
-                </Typography>
-              </div>
-            </Grid>
-          </Grid>
+          <a id="howItWorks">
+              <Typography variant="h4" marked="center" className={classes.title} component="h2">
+                  Como funciona
+              </Typography>
+          </a>
+        <div className={classes.videoContainer}>
+          <iframe className={classes.youtubeFrame}
+                  src="https://www.youtube.com/embed/z9Ul9ccDOqE"
+                  allowFullScreen
+                  frameBorder="0"></iframe>
         </div>
         <Button
-          color="secondary"
-          size="large"
-          variant="contained"
-          className={classes.button}
-          component={RouterLink}
-          to="/sign-up/"
+            color="secondary"
+            size="large"
+            variant="contained"
+            className={classes.button}
+            component="a"
+            href="https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp?hl=en&authuser=0"
         >
-          Get started
+          Añade a chrome gratis
         </Button>
       </Container>
     </section>

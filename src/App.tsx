@@ -31,6 +31,9 @@ function App() {
           <Route path="/">
             <Home />
           </Route>
+          <Route path="/how-it-works">
+            <SignIn />
+          </Route>
         </Switch>
       </Router>
     </React.Fragment>
