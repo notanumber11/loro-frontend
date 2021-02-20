@@ -21,7 +21,7 @@ const styles = (theme: Theme) =>
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            padding: theme.spacing(0, 5),
+            padding: theme.spacing(1, 5),
         },
         title: {
             color: "white"
@@ -122,7 +122,7 @@ function ProductHowItWorks(props: WithStyles<typeof styles>) {
                                     className={classes.image}
                                 />
                                 <Typography variant="h5" align="center">
-                                    Browse as normal and learn along the way!
+                                    Browse as normal and start to learn!
                                 </Typography>
                             </div>
                         </Grid>

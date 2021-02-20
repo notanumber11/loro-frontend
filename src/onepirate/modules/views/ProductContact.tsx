@@ -9,7 +9,7 @@ import {url} from "inspector";
 const styles = (theme: Theme) =>
     createStyles({
         howItWorks: {},
-        item: {
+        itemDesktop: {
             display: "flex",
             flexDirection: "column",
             position: "relative",
@@ -89,14 +89,9 @@ function ProductContact(props: WithStyles<typeof styles>) {
                     </Typography>
                 </Grid>
                 <div className={classes.contactContent}>
-                    {/*                <img
-                    src="/productCurvyLines.png"
-                    className={classes.curvyLines}
-                    alt="curvy lines"
-                />*/}
                     <Box flexDirection="column" display="flex" alignItems="center" justifyContent="center" m={5} p={1}>
                         <Box>
-                            <Typography variant="h4" component="span">
+                            <Typography variant="h4" align="center">
                                 Got any questions? Need help?
                             </Typography>
                         </Box>

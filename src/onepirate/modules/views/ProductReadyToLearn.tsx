@@ -6,8 +6,10 @@ import Button from "../components/Button";
 
 const styles = (theme: Theme) =>
     createStyles({
-        howItWorks: {},
-        item: {
+        howItWorks: {
+
+        },
+        itemDesktop: {
             display: "flex",
             flexDirection: "column",
             position: "relative",
@@ -85,14 +87,13 @@ function ProductReadyToLearn(props: WithStyles<typeof styles>) {
                     </Typography>
                 </Grid>
                 <div className={classes.contactContent}>
-                    <Box flexDirection="column" display="flex" alignItems="center" justifyContent="center" m={3} p={3}
-                         bgcolor="background.paper">
+                    <Box flexDirection="column" display="flex" alignItems="center" justifyContent="center" m={3} p={3}>
                         <Box m={1} p={1}>
                             <img className={classes.loroIcon} src={loroIcon} alt="loro icon"/>
                         </Box>
                         <Box m={1} p={1}>
-                            <Typography variant="h5">
-                                Install for free and start learning a new language in seconds.
+                            <Typography variant="h5" align="center">
+                                Install for free and start learning a new language.
                             </Typography>
                         </Box>
                         <Box m={1} p={1}>
