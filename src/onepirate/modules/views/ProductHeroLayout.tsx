@@ -18,7 +18,7 @@ const styles = (theme: Theme) =>
         },
         container: {
             marginTop: theme.spacing(3),
-            marginBottom: theme.spacing(14),
+            marginBottom: theme.spacing(6),
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -41,8 +41,8 @@ const styles = (theme: Theme) =>
         loroIcon: {
 /*            position: "fixed",
             bottom: "0",*/
-            width: "250px",
-            height: "250px"
+            width: "125px",
+            height: "125px"
         },
         imageBoxRight: {
             position: "absolute",
@@ -54,14 +54,14 @@ const styles = (theme: Theme) =>
         imageBoxLeft:{
             position: "absolute",
             bottom: 0,
-            left: 0,
+            left: "15%",
             overflow: "hidden",
             zIndex: -1,
             transform: "scale(-1, 1)"
         }
     });
 
-const backgroundImage2 = "/loro.svg";
+const loroIcon = "/loro.svg";
 
 interface ProductHeroLayoutProps {
     backgroundClassName: string;
@@ -76,23 +76,10 @@ function ProductHeroLayout(
 
     return (
         <section className={classes.root}>
-            <div className={classes.imageBoxRight}>
-                <img className={classes.loroIcon} src={backgroundImage2} alt="increase priority"/>
-            </div>
-            <div className={classes.imageBoxLeft}>
-                <img className={classes.loroIcon} src={backgroundImage2} alt="increase priority"/>
-            </div>
             <Container className={classes.container}>
                 {children}
                 <div className={classes.backdrop}/>
                 <div className={clsx(classes.background, backgroundClassName)}/>
-                <img
-                    className={classes.arrowDown}
-                    src="/productHeroArrowDown.png"
-                    height="32"
-                    width="24"
-                    alt="arrow down"
-                />
             </Container>
         </section>
     );

@@ -1,106 +1,144 @@
 import React from "react";
-import {
-  withStyles,
-  Theme,
-  createStyles,
-  WithStyles,
-} from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import Container from "@material-ui/core/Container";
-import Button from "../components/Button";
+import {createStyles, Theme, withStyles, WithStyles,} from "@material-ui/core/styles";
 import Typography from "../components/Typography";
-import { Link as RouterLink } from "react-router-dom";
+import {Grid} from "@material-ui/core";
+import Button from "../components/Button";
 
 const styles = (theme: Theme) =>
-  createStyles({
-    root: {
-      display: "flex",
-      backgroundColor: theme.palette.secondary.light,
-      overflow: "hidden",
-    },
-    container: {
-      marginTop: theme.spacing(10),
-      marginBottom: theme.spacing(15),
-      position: "relative",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-    },
-    item: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      padding: theme.spacing(0, 5),
-    },
-    title: {
-      marginBottom: theme.spacing(14),
-    },
-    number: {
-      fontSize: 24,
-      fontFamily: theme.typography.fontFamily,
-      color: theme.palette.secondary.main,
-      fontWeight: theme.typography.fontWeightMedium,
-    },
-    image: {
-      height: 55,
-      marginTop: theme.spacing(4),
-      marginBottom: theme.spacing(4),
-    },
-    curvyLines: {
-      pointerEvents: "none",
-      position: "absolute",
-      top: -180,
-      opacity: 0.7,
-    },
-    button: {
-      marginTop: theme.spacing(8),
-    },
-    videoContainer: {
-      position: "relative",
-      paddingBottom: "56.25%",
-      paddingTop: "35px",
-      height: 0,
-      overflow: "hidden",
-      width: "100%"
-    },
-    youtubeFrame: {
-      position: "absolute",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%"
-    }
-  });
+    createStyles({
+        howItWorks: {
+            display: "flex",
+            overflow: "hidden",
+        },
+        container2: {
+            marginBottom: theme.spacing(5),
+            position: "relative",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+        },
+        item: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            padding: theme.spacing(0, 5),
+        },
+        title: {
+            color: "white"
+        },
+        number: {
+            fontSize: 24,
+            fontFamily: theme.typography.fontFamily,
+            color: theme.palette.secondary.main,
+            fontWeight: theme.typography.fontWeightMedium,
+        },
+        image: {
+            height: 55,
+            marginTop: theme.spacing(4),
+            marginBottom: theme.spacing(4),
+        },
+        curvyLines: {
+            pointerEvents: "none",
+            position: "absolute",
+            top: -180,
+            opacity: 0.7,
+        },
+        button: {
+            marginTop: theme.spacing(8),
+            backgroundColor: theme.palette.secondary.light,
+            color: "white"
+        },
+        topBox: {
+            backgroundColor: theme.palette.secondary.light,
+            height: "120px",
+            width: "100%",
+            marginBottom: theme.spacing(5),
+        },
+        bottomBox: {
+            backgroundColor: theme.palette.secondary.light,
+            height: "40px",
+            width: "100%",
+            margin: theme.spacing(5),
+        }
+    });
 
 function ProductHowItWorks(props: WithStyles<typeof styles>) {
-  const { classes } = props;
+    const {classes} = props;
 
-  return (
-    <section className={classes.root}>
-      <Container className={classes.container}>
-          <a id="howItWorks">
-              <Typography variant="h4" marked="center" className={classes.title} component="h2">
-                  Como funciona
-              </Typography>
-          </a>
-        <div className={classes.videoContainer}>
-          <iframe className={classes.youtubeFrame}
-                  src="https://www.youtube.com/embed/z9Ul9ccDOqE"
-                  allowFullScreen
-                  frameBorder="0"></iframe>
-        </div>
-        <Button
-            color="secondary"
-            size="large"
-            variant="contained"
-            className={classes.button}
-            component="a"
-            href="https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp?hl=en&authuser=0"
-        >
-          Añade a chrome gratis
-        </Button>
-      </Container>
-    </section>
-  );
+    return (
+        <section className={classes.howItWorks}>
+            <div className={classes.container2}>
+                <div className={classes.topBox}>
+                    <Grid className={classes.topBox}
+                          container
+                          direction="row"
+                          justify="center"
+                          alignItems="center"
+                    >
+                        <Typography variant="h3" className={classes.title}>
+                            How it works
+                        </Typography>
+                    </Grid>
+                </div>
+                <img
+                    src="/productCurvyLines.png"
+                    className={classes.curvyLines}
+                    alt="curvy lines"
+                />
+                <div>
+                    <Grid container spacing={5}>
+                        <Grid item xs={12} md={4}>
+                            <div className={classes.item}>
+                                <div className={classes.number}>1.</div>
+                                <img
+                                    src="/install.png"
+                                    alt="suitcase"
+                                    className={classes.image}
+                                />
+                                <Typography variant="h5" align="center">
+                                    Install the browser extension for free.
+                                </Typography>
+                            </div>
+                        </Grid>
+                        <Grid item xs={12} md={4}>
+                            <div className={classes.item}>
+                                <div className={classes.number}>2.</div>
+                                <img
+                                    src="/settings.png"
+                                    alt="graph"
+                                    className={classes.image}
+                                />
+                                <Typography variant="h5" align="center">
+                                    Choose the language you want to learn and the difficulty.
+                                </Typography>
+                            </div>
+                        </Grid>
+                        <Grid item xs={12} md={4}>
+                            <div className={classes.item}>
+                                <div className={classes.number}>3.</div>
+                                <img
+                                    src="/learn.png"
+                                    alt="clock"
+                                    className={classes.image}
+                                />
+                                <Typography variant="h5" align="center">
+                                    Browse as normal and learn along the way!
+                                </Typography>
+                            </div>
+                        </Grid>
+                    </Grid>
+                </div>
+                <Button
+                    size="large"
+                    variant="contained"
+                    className={classes.button}
+                    to="/sign-up/"
+                >
+                    Add to Chrome
+                </Button>
+            </div>
+        </section>
+    );
 }
+
 export default withStyles(styles)(ProductHowItWorks);

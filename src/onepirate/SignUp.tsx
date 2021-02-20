@@ -65,6 +65,11 @@ function SignUp() {
               Already have an account?
             </Link>
           </Typography>
+          <Typography variant="body2" align="center">
+            <Link component={RouterLink} to="/on-boarding/" underline="always">
+              OnBoarding
+            </Link>
+          </Typography>
         </React.Fragment>
         <Form
           onSubmit={handleSubmit}

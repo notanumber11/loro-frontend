@@ -2,7 +2,7 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import { green, grey, red } from "@material-ui/core/colors";
 
 const rawTheme = createMuiTheme({
-  palette: {
+/*  palette: {
     primary: {
       light: "#69696a",
       main: "#28282a",
@@ -34,19 +34,19 @@ const rawTheme = createMuiTheme({
     fontWeightLight: 300, // Work Sans
     fontWeightRegular: 400, // Work Sans
     fontWeightMedium: 700, // Roboto Condensed
-  },
+  },*/
 });
 
 const fontHeader = {
-  color: rawTheme.palette.text.primary,
+/*  color: rawTheme.palette.text.primary,
   fontWeight: rawTheme.typography.fontWeightMedium,
   fontFamily: "'Roboto Condensed', sans-serif",
-  textTransform: "uppercase",
+  textTransform: "uppercase",*/
 };
 
-const theme = {
+const onePirateTheme = {
   ...rawTheme,
-  palette: {
+  /*palette: {
     ...rawTheme.palette,
     background: {
       ...rawTheme.palette.background,
@@ -101,7 +101,7 @@ const theme = {
       ...rawTheme.typography.body1,
       fontSize: 14,
     },
-  },
+  },*/
 };
 
-export default theme;
+export default onePirateTheme;

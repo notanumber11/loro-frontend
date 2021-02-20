@@ -60,6 +60,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: theme.spacing(1),
     width: 150,
   },
+  footerTitles: {
+    color: "white"
+  },
+  footerSubtitles: {
+    color: "white"
+  }
 }));
 
 const LANGUAGES = [
@@ -77,24 +83,28 @@ export default function AppFooter() {
       <Container className={classes.container}>
         <Grid container spacing={5}>
           <Grid item xs={6} sm={4} md={2}>
-            <Typography variant="h6" marked="left" gutterBottom>
+            <Typography variant="h6" marked="left" gutterBottom className={classes.footerTitles}>
               Legal
             </Typography>
             <ul className={classes.list}>
               <li className={classes.listItem}>
                 <Link component={RouterLink} to="/terms/" >
-                  Términos
+                  <Typography className={classes.footerSubtitles}>
+                    Terms
+                  </Typography>
                 </Link>
               </li>
               <li className={classes.listItem}>
                 <Link component={RouterLink} to="/privacy/" >
-                  Privacy
+                  <Typography className={classes.footerSubtitles}>
+                    Privacy
+                  </Typography>
                 </Link>
               </li>
             </ul>
           </Grid>
           <Grid item xs={6} sm={8} md={4}>
-            <Typography variant="h6" marked="left" gutterBottom>
+            <Typography variant="h6" marked="left" gutterBottom className={classes.footerTitles}>
               Language
             </Typography>
             <TextField
@@ -114,7 +124,7 @@ export default function AppFooter() {
         </Grid>
         <Grid>
           <Grid item>
-            <Typography variant="caption">
+            <Typography variant="caption" className={classes.footerSubtitles}>
               <div>Iconos diseñados por <a href="https://www.flaticon.es/autores/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a></div>
             </Typography>
           </Grid>

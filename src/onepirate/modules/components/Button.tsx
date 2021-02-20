@@ -10,7 +10,7 @@ import React from "react";
 const styles = (theme: Theme) =>
   createStyles({
     root: {
-      borderRadius: 0,
+      borderRadius: 40,
       fontWeight: theme.typography.fontWeightMedium,
       fontFamily: theme.typography.h1.fontFamily,
       padding: theme.spacing(2, 4),

@@ -90,7 +90,8 @@ function TextField(props: OnePirateTextFieldProps & WithStyles<typeof styles>) {
     disableUnderline: true,
   };
 
-  return (
+  // @ts-ignore
+    return (
     <MuiTextField
       InputProps={{
         ...disableUnderline,
