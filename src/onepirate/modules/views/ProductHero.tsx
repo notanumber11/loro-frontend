@@ -55,8 +55,8 @@ const styles = (theme: Theme) =>
         mainGrid: {
             padding: "0.5em",
         },
-        turu: {
-            backgroundColor: "red"
+        button: {
+            marginTop: theme.spacing(4),
         }
     });
 
@@ -67,7 +67,7 @@ function ProductHero(props: WithStyles<typeof styles>) {
 
     return (
         <ProductHeroLayout backgroundClassName={classes.background}>
-            <Grid container spacing={10} alignItems="center" justify="center" className={classes.mainGrid}>
+            <Grid container spacing={isDesktop ? 10 : 5} alignItems="center" justify="center" className={classes.mainGrid}>
                 <Grid item xs={12} md={6}>
                     <Box flexDirection="column" display="flex" alignItems="center" justifyContent="center">
                         <img className={classes.loroIcon} src={loroIcon} alt="loro icon"/>
@@ -80,6 +80,7 @@ function ProductHero(props: WithStyles<typeof styles>) {
                     </Typography>
                     <Box flexDirection="column" display="flex" alignItems="center" justifyContent="center">
                         <Button
+                            className={classes.button}
                             size="large"
                             variant="contained"
                             color="primary"

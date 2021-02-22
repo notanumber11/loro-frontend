@@ -3,8 +3,6 @@ import {createStyles, Theme, withStyles, WithStyles,} from "@material-ui/core/st
 import Typography from "../components/Typography";
 import {Box, Grid} from "@material-ui/core";
 import Button from "../components/Button";
-import WordHovering from "../../../gui/WordHovering";
-import {url} from "inspector";
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -24,11 +22,15 @@ const styles = (theme: Theme) =>
         title: {
             color: "white"
         },
-                button: {
-                    marginTop: theme.spacing(8),
-                    backgroundColor: theme.palette.secondary.light,
-                    color: "white"
-                },
+        button: {
+            marginTop: theme.spacing(8),
+            backgroundColor: theme.palette.secondary.light,
+            color: "white",
+            "&:hover": {
+                //you want this to be the same as the backgroundColor above
+                backgroundColor: theme.palette.secondary.light
+            },
+        },
         topBox: {
             backgroundColor: theme.palette.secondary.light,
             height: "120px",
@@ -93,12 +95,12 @@ function ProductContact(props: WithStyles<typeof styles>) {
                                 Contact us
                             </Button>
                         </Box>
-                        <Box p={1} >
+                        <Box p={1}>
                             <Typography variant="subtitle1" className={classes.link} align="center">
                                 We are here to help. Get in touch!
                             </Typography>
                         </Box>
-                        <Box p={1} >
+                        <Box p={1}>
                             <img src="./producBuoy.svg" className={classes.buoy} alt="buoy"/>
                         </Box>
                     </Box>

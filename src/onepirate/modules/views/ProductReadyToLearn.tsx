@@ -24,9 +24,7 @@ const styles = (theme: Theme) =>
             color: "white"
         },
         button: {
-            marginTop: theme.spacing(8),
-            backgroundColor: theme.palette.secondary.light,
-            color: "white"
+            marginTop: theme.spacing(4),
         },
         topBox: {
             backgroundColor: theme.palette.primary.main,
@@ -78,7 +76,7 @@ function ProductReadyToLearn(props: WithStyles<typeof styles>) {
                     </Typography>
                 </Grid>
                 <div className={classes.contactContent}>
-                    <Box flexDirection="column" display="flex" alignItems="center" justifyContent="center" m={3} p={3}>
+                    <Box flexDirection="column" display="flex" alignItems="center" justifyContent="center" p={3}>
                         <Box m={1} p={1}>
                             <img className={classes.loroIcon} src={loroIcon} alt="loro icon"/>
                         </Box>
@@ -89,6 +87,7 @@ function ProductReadyToLearn(props: WithStyles<typeof styles>) {
                         </Box>
                         <Box>
                             <Button
+                                className={classes.button}
                                 variant="contained"
                                 size="large"
                                 color="primary"

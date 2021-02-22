@@ -1,7 +1,7 @@
 import React from "react";
 import {createStyles, Theme, withStyles, WithStyles,} from "@material-ui/core/styles";
 import Typography from "../components/Typography";
-import {Grid} from "@material-ui/core";
+import {Box, Grid} from "@material-ui/core";
 import Button from "../components/Button";
 
 const styles = (theme: Theme) =>
@@ -41,6 +41,10 @@ const styles = (theme: Theme) =>
         },
         button: {
             marginTop: theme.spacing(8),
+            "&:hover": {
+                //you want this to be the same as the backgroundColor above
+                backgroundColor: theme.palette.secondary.light
+            },
             backgroundColor: theme.palette.secondary.light,
             color: "white"
         },
@@ -119,16 +123,11 @@ function ProductHowItWorks(props: WithStyles<typeof styles>) {
                             </div>
                         </Grid>
                     </Grid>
-                    <Grid
-                        container
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                    >
+                    <Box flexDirection="column" display="flex" alignItems="center" justifyContent="center">
                         <Button
                             className={classes.button}
-                            variant="contained"
                             size="large"
+                            variant="contained"
                             color="primary"
                             component="a"
                             href="https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp"
@@ -137,7 +136,7 @@ function ProductHowItWorks(props: WithStyles<typeof styles>) {
                                 Add to Chrome for free
                             </Typography>
                         </Button>
-                    </Grid>
+                    </Box>
                 </div>
             </div>
         </section>

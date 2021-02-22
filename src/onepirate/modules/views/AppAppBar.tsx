@@ -1,19 +1,12 @@
 import React from 'react';
-import { fade, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
-import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import MoreIcon from '@material-ui/icons/MoreVert';
 import Button from "../components/Button";
 import {Box, Grid} from "@material-ui/core";
 
@@ -23,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
             flexGrow: 1,
         },
         menuButton: {
-            marginRight: theme.spacing(2),
+            marginRight: theme.spacing(0),
         },
         title: {
             [theme.breakpoints.up('sm')]: {
@@ -94,41 +87,29 @@ export default function PrimarySearchAppBar() {
         setMobileMoreAnchorEl(event.currentTarget);
     };
 
-    const goToChromeStore = ()=> {
-        window.location.href="https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp"
+    const goToChromeStore = () => {
+        window.location.href = "https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp"
     };
 
     const menuId = 'primary-search-account-menu';
-    const renderMenu = (
-        <Menu
-            anchorEl={anchorEl}
-            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-            id={menuId}
-            keepMounted
-            transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-            open={isMenuOpen}
-            onClose={handleMenuClose}
-        >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-        </Menu>
-    );
 
     const mobileMenuId = 'primary-search-account-menu-mobile';
     const renderMobileMenu = (
         <Menu
             anchorEl={mobileMoreAnchorEl}
-            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+            anchorOrigin={{vertical: 'top', horizontal: 'right'}}
             id={mobileMenuId}
             keepMounted
-            transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+            transformOrigin={{vertical: 'top', horizontal: 'right'}}
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
             <MenuItem onClick={goToChromeStore}>
                 <p>Add to chrome</p>
             </MenuItem>
-            <MenuItem onClick={()=>{window.location.href="https://docs.google.com/forms/d/e/1FAIpQLSeLWDiAocLZ2GGXBAFd3GsM2ukI42ZxhT8UBGj-ZlbLzcM78g/viewform"}}>
+            <MenuItem onClick={() => {
+                window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSeLWDiAocLZ2GGXBAFd3GsM2ukI42ZxhT8UBGj-ZlbLzcM78g/viewform"
+            }}>
                 <p>Contact</p>
             </MenuItem>
         </Menu>
@@ -141,7 +122,7 @@ export default function PrimarySearchAppBar() {
                     <Typography className={classes.title} variant="h4" noWrap>
                         Loro
                     </Typography>
-                    <div className={classes.grow} />
+                    <div className={classes.grow}/>
                     <div className={classes.sectionDesktop}>
                         <Grid
                             container
@@ -167,20 +148,15 @@ export default function PrimarySearchAppBar() {
 
                     </div>
                     <div className={classes.sectionMobile}>
-                        <IconButton
-                            aria-label="show more"
-                            aria-controls={mobileMenuId}
-                            aria-haspopup="true"
-                            onClick={handleMobileMenuOpen}
-                            color="inherit"
+                        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu"
+                                    onClick={handleMobileMenuOpen}
                         >
-                            <MoreIcon />
+                            <MenuIcon/>
                         </IconButton>
                     </div>
                 </Toolbar>
             </AppBar>
             {renderMobileMenu}
-            {renderMenu}
         </div>
     );
 }
