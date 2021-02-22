@@ -1,7 +1,7 @@
 import React from "react";
 import {createStyles, Theme, withStyles, WithStyles,} from "@material-ui/core/styles";
 import Typography from "../components/Typography";
-import {Box, Grid} from "@material-ui/core";
+import {Box, Grid, useMediaQuery} from "@material-ui/core";
 import Button from "../components/Button";
 import WordHovering from "../../../gui/WordHovering";
 
@@ -60,6 +60,7 @@ const styles = (theme: Theme) =>
 function ProductReadyToLearn(props: WithStyles<typeof styles>) {
     const {classes} = props;
     const loroIcon = "./loro.svg";
+    const isDesktop = useMediaQuery('(min-width:600px)');
 
     return (
         <section>
@@ -95,7 +96,7 @@ function ProductReadyToLearn(props: WithStyles<typeof styles>) {
                                 href="https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp"
                             >
                                 <Typography align="center">
-                                    Add to Chrome for free
+                                    {isDesktop ? "Add to Chrome for free" : "Add to Chrome"}
                                 </Typography>
                             </Button>
                         </Box>

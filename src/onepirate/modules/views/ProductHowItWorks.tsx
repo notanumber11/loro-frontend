@@ -1,7 +1,7 @@
 import React from "react";
 import {createStyles, Theme, withStyles, WithStyles,} from "@material-ui/core/styles";
 import Typography from "../components/Typography";
-import {Box, Grid} from "@material-ui/core";
+import {Box, Grid, useMediaQuery} from "@material-ui/core";
 import Button from "../components/Button";
 
 const styles = (theme: Theme) =>
@@ -64,6 +64,7 @@ const styles = (theme: Theme) =>
 
 function ProductHowItWorks(props: WithStyles<typeof styles>) {
     const {classes} = props;
+    const isDesktop = useMediaQuery('(min-width:600px)');
 
     return (
         <section>
@@ -133,7 +134,7 @@ function ProductHowItWorks(props: WithStyles<typeof styles>) {
                             href="https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp"
                         >
                             <Typography align="center">
-                                Add to Chrome for free
+                                {isDesktop ? "Add to Chrome for free" : "Add to Chrome"}
                             </Typography>
                         </Button>
                     </Box>

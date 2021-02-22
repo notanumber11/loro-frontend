@@ -88,7 +88,7 @@ function ProductHero(props: WithStyles<typeof styles>) {
                             href="https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp"
                         >
                             <Typography align="center">
-                                Add to Chrome for free
+                                {isDesktop ? "Add to Chrome for free" : "Add to Chrome"}
                             </Typography>
                         </Button>
                     </Box>
