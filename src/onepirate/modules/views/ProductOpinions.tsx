@@ -3,13 +3,10 @@ import {createStyles, Theme, withStyles, WithStyles,} from "@material-ui/core/st
 import Typography from "../components/Typography";
 import {Box, Grid, Paper, useMediaQuery} from "@material-ui/core";
 import Button from "../components/Button";
+import LoroConf from "../../../LoroConf";
 
 const styles = (theme: Theme) =>
     createStyles({
-        howItWorks: {
-            display: "flex",
-            overflow: "hidden",
-        },
         containerReviews: {
             marginBottom: theme.spacing(5),
             position: "relative",
@@ -22,10 +19,8 @@ const styles = (theme: Theme) =>
             flexDirection: "column",
             position: "relative",
             padding: theme.spacing(5),
-            height: "fit-content"
-        },
-        itemPhone: {
-
+            height: "fit-content",
+            maxWidth: "400px"
         },
         footerAuthor: {
             position: "absolute",
@@ -42,6 +37,9 @@ const styles = (theme: Theme) =>
             color: "white"
         },
         topBox: {
+            width: "100%",
+        },
+        topBoxContent: {
             backgroundColor: theme.palette.primary.main,
             height: "120px",
             width: "100%",
@@ -53,8 +51,11 @@ const styles = (theme: Theme) =>
             width: "100%",
             margin: theme.spacing(5),
         },
-        reviewsGrid: {
+        reviewsGridDesktop: {
             padding: "3em"
+        },
+        reviewsGridMobile: {
+            padding: "1em"
         }
     });
 
@@ -63,7 +64,6 @@ function ProductOpinions(props: WithStyles<typeof styles>) {
     const isDesktop = useMediaQuery('(min-width:600px)');
 
     useEffect(() => {
-        console.log("Calculating height:");
         let items = document.getElementsByClassName(classes.itemDesktop);
         let maxHeight = 0;
         for(let i=0; i<items.length; i++) {
@@ -74,7 +74,7 @@ function ProductOpinions(props: WithStyles<typeof styles>) {
                 maxHeight = height;
             }
         }
-        maxHeight *= 1.15;
+        maxHeight += 50;
 
         for(let i=0; i<items.length; i++) {
             let current = items[i];
@@ -83,17 +83,17 @@ function ProductOpinions(props: WithStyles<typeof styles>) {
                 current.style.height = `${maxHeight}px`;
             } else {
                 // @ts-ignore
-                current.style.height= `${current.scrollHeight * 1.1}px`;
+                current.style.height= `${current.scrollHeight + 50}px`;
             }
 
         }
     });
 
     return (
-        <section className={classes.howItWorks}>
+        <section>
             <div className={classes.containerReviews}>
                 <div className={classes.topBox}>
-                    <Grid className={classes.topBox}
+                    <Grid className={classes.topBoxContent}
                           container
                           direction="row"
                           justify="center"
@@ -108,7 +108,7 @@ function ProductOpinions(props: WithStyles<typeof styles>) {
                     </Grid>
                 </div>
                 <div>
-                    <Grid container spacing={10} className={classes.reviewsGrid}>
+                    <Grid container spacing={10} className={ isDesktop ? classes.reviewsGridDesktop : classes.reviewsGridMobile}>
                         <Grid item xs={12} md={4}>
                             <Paper elevation={10} className={classes.itemDesktop}>
                                 <Typography variant="h5">
@@ -120,7 +120,7 @@ function ProductOpinions(props: WithStyles<typeof styles>) {
                                 </Typography>
 
                                 <Typography variant="h4" color="primary" align="right" className={classes.footerAuthor}>
-                                    Caleb Adoh
+                                    Caleb
                                 </Typography>
                             </Paper>
                         </Grid>
@@ -155,8 +155,6 @@ function ProductOpinions(props: WithStyles<typeof styles>) {
                     </Grid>
                 </div>
             </div>
-            {/*            <div className={classes.bottomBox}>
-            </div>*/}
         </section>
     );
 }

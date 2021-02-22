@@ -1,6 +1,6 @@
 # Frontend for loro extension
 
-- Link to chrome store: [Loro extension](https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp?hl=en&authuser=0)  
+- Link to chrome store: [Loro extension](https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp)  
 - Based on: [onepirate material ui theme](https://github.com/rothbart/onepirate-typescript)
 
 # Based on onepirate-CRA-typescript

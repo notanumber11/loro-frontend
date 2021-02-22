@@ -7,16 +7,12 @@ import SignIn from "./onepirate/SignIn";
 import SignUp from "./onepirate/SignUp";
 import ForgotPassword from "./onepirate/ForgotPassword";
 import Terms from "./onepirate/Terms";
-import OnBoarding from "./gui/onBoarding/OnBoarding";
 
 function App() {
   return (
     <React.Fragment>
       <Router>
         <Switch>
-          <Route path="/on-boarding">
-            <OnBoarding />
-          </Route>
           <Route path="/forgot-password">
             <ForgotPassword />
           </Route>

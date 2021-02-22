@@ -6,11 +6,7 @@ import Button from "../components/Button";
 
 const styles = (theme: Theme) =>
     createStyles({
-        howItWorks: {
-            display: "flex",
-            overflow: "hidden",
-        },
-        container2: {
+        containerHowItWorks: {
             marginBottom: theme.spacing(5),
             position: "relative",
             display: "flex",
@@ -49,16 +45,16 @@ const styles = (theme: Theme) =>
             color: "white"
         },
         topBox: {
+            width: "100%",
+        },
+        topBoxContent: {
             backgroundColor: theme.palette.secondary.light,
             height: "120px",
             width: "100%",
             marginBottom: theme.spacing(5),
         },
-        bottomBox: {
-            backgroundColor: theme.palette.secondary.light,
-            height: "40px",
-            width: "100%",
-            margin: theme.spacing(5),
+        contentHowItWorks: {
+            padding: theme.spacing(5, 0),
         }
     });
 
@@ -66,32 +62,28 @@ function ProductHowItWorks(props: WithStyles<typeof styles>) {
     const {classes} = props;
 
     return (
-        <section className={classes.howItWorks}>
-            <div className={classes.container2}>
+        <section>
+            <div className={classes.containerHowItWorks}>
                 <div className={classes.topBox}>
-                    <Grid className={classes.topBox}
-                          container
-                          direction="row"
-                          justify="center"
-                          alignItems="center"
+                    <Grid
+                        className={classes.topBoxContent}
+                        container
+                        direction="row"
+                        justify="center"
+                        alignItems="center"
                     >
-                        <Typography variant="h3" className={classes.title}>
+                        <Typography variant="h3" className={classes.title} align="center">
                             How it works
                         </Typography>
                     </Grid>
                 </div>
-                <img
-                    src="/productCurvyLines.png"
-                    className={classes.curvyLines}
-                    alt="curvy lines"
-                />
-                <div>
+                <div className={classes.contentHowItWorks}>
                     <Grid container spacing={5}>
                         <Grid item xs={12} md={4}>
                             <div className={classes.item}>
                                 <div className={classes.number}>1.</div>
                                 <img
-                                    src="/install.png"
+                                    src="./install.png"
                                     alt="suitcase"
                                     className={classes.image}
                                 />
@@ -104,7 +96,7 @@ function ProductHowItWorks(props: WithStyles<typeof styles>) {
                             <div className={classes.item}>
                                 <div className={classes.number}>2.</div>
                                 <img
-                                    src="/settings.png"
+                                    src="./settings.png"
                                     alt="graph"
                                     className={classes.image}
                                 />
@@ -117,7 +109,7 @@ function ProductHowItWorks(props: WithStyles<typeof styles>) {
                             <div className={classes.item}>
                                 <div className={classes.number}>3.</div>
                                 <img
-                                    src="/learn.png"
+                                    src="./learn.png"
                                     alt="clock"
                                     className={classes.image}
                                 />
@@ -127,15 +119,26 @@ function ProductHowItWorks(props: WithStyles<typeof styles>) {
                             </div>
                         </Grid>
                     </Grid>
+                    <Grid
+                        container
+                        direction="row"
+                        justify="center"
+                        alignItems="center"
+                    >
+                        <Button
+                            className={classes.button}
+                            variant="contained"
+                            size="large"
+                            color="primary"
+                            component="a"
+                            href="https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp"
+                        >
+                            <Typography align="center">
+                                Add to Chrome for free
+                            </Typography>
+                        </Button>
+                    </Grid>
                 </div>
-                <Button
-                    size="large"
-                    variant="contained"
-                    className={classes.button}
-                    to="/sign-up/"
-                >
-                    Add to Chrome
-                </Button>
             </div>
         </section>
     );

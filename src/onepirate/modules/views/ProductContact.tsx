@@ -8,7 +8,6 @@ import {url} from "inspector";
 
 const styles = (theme: Theme) =>
     createStyles({
-        howItWorks: {},
         itemDesktop: {
             display: "flex",
             flexDirection: "column",
@@ -34,12 +33,6 @@ const styles = (theme: Theme) =>
             backgroundColor: theme.palette.secondary.light,
             height: "120px",
             width: "100%",
-            // marginBottom: theme.spacing(5),
-        },
-        bottomBox: {
-            backgroundColor: theme.palette.primary.main,
-            height: "120px",
-            width: "100%",
         },
         reviewsGrid: {
             padding: "3em"
@@ -47,9 +40,6 @@ const styles = (theme: Theme) =>
         contactContent: {
             width: "100%",
             position: "relative",
-        },
-        imageWrapper: {
-            backgroundImage: `url('/productCurvyLines.png')`
         },
         link: {
             marginTop: theme.spacing(3),
@@ -72,11 +62,10 @@ const styles = (theme: Theme) =>
 
 function ProductContact(props: WithStyles<typeof styles>) {
     const {classes} = props;
-    const loroIcon = "/loro.svg";
 
     return (
-        <section className={classes.howItWorks}>
-            <div className={classes.imageWrapper}>
+        <section>
+            <div>
                 <Grid
                     container
                     direction="row"
@@ -98,17 +87,19 @@ function ProductContact(props: WithStyles<typeof styles>) {
                         <Box>
                             <Button
                                 size="large"
+                                component="a"
+                                href="https://docs.google.com/forms/d/e/1FAIpQLSeLWDiAocLZ2GGXBAFd3GsM2ukI42ZxhT8UBGj-ZlbLzcM78g/viewform"
                                 className={classes.button}>
                                 Contact us
                             </Button>
                         </Box>
                         <Box p={1} >
-                            <Typography variant="subtitle1" className={classes.link}>
+                            <Typography variant="subtitle1" className={classes.link} align="center">
                                 We are here to help. Get in touch!
                             </Typography>
                         </Box>
                         <Box p={1} >
-                            <img src="/producBuoy.svg" className={classes.buoy} alt="buoy"/>
+                            <img src="./producBuoy.svg" className={classes.buoy} alt="buoy"/>
                         </Box>
                     </Box>
                 </div>

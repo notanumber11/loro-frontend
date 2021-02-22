@@ -3,12 +3,10 @@ import {createStyles, Theme, withStyles, WithStyles,} from "@material-ui/core/st
 import Typography from "../components/Typography";
 import {Box, Grid} from "@material-ui/core";
 import Button from "../components/Button";
+import WordHovering from "../../../gui/WordHovering";
 
 const styles = (theme: Theme) =>
     createStyles({
-        howItWorks: {
-
-        },
         itemDesktop: {
             display: "flex",
             flexDirection: "column",
@@ -31,12 +29,6 @@ const styles = (theme: Theme) =>
             color: "white"
         },
         topBox: {
-            backgroundColor: theme.palette.secondary.light,
-            height: "120px",
-            width: "100%",
-            marginBottom: theme.spacing(5),
-        },
-        bottomBox: {
             backgroundColor: theme.palette.primary.main,
             height: "120px",
             width: "100%",
@@ -59,7 +51,7 @@ const styles = (theme: Theme) =>
             height: "250px"
         },
         containerReviews: {
-            marginBottom: theme.spacing(5),
+            marginBottom: theme.spacing(2),
             position: "relative",
             display: "flex",
             flexDirection: "column",
@@ -69,20 +61,19 @@ const styles = (theme: Theme) =>
 
 function ProductReadyToLearn(props: WithStyles<typeof styles>) {
     const {classes} = props;
-    const loroIcon = "/loro.svg";
+    const loroIcon = "./loro.svg";
 
     return (
-        <section className={classes.howItWorks}>
+        <section>
             <div className={classes.containerReviews}>
-
                 <Grid
                     container
                     direction="row"
                     justify="center"
                     alignItems="center"
-                    className={classes.bottomBox}
+                    className={classes.topBox}
                 >
-                    <Typography variant="h3" className={classes.title}>
+                    <Typography variant="h3" className={classes.title} align="center">
                         Ready to learn?
                     </Typography>
                 </Grid>
@@ -93,18 +84,20 @@ function ProductReadyToLearn(props: WithStyles<typeof styles>) {
                         </Box>
                         <Box m={1} p={1}>
                             <Typography variant="h5" align="center">
-                                Install for free and start learning a new language.
+                                Install for free and start learning a <WordHovering original="new" translated="nuevo"/> language.
                             </Typography>
                         </Box>
-                        <Box m={1} p={1}>
+                        <Box>
                             <Button
                                 variant="contained"
                                 size="large"
                                 color="primary"
                                 component="a"
-                                href="https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp?hl=en&authuser=0"
+                                href="https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp"
                             >
-                                Add to Chrome
+                                <Typography align="center">
+                                    Add to Chrome for free
+                                </Typography>
                             </Button>
                         </Box>
                     </Box>

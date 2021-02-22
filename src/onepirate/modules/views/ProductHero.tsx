@@ -4,7 +4,7 @@ import Button from "../components/Button";
 import Typography from "../components/Typography";
 import ProductHeroLayout from "./ProductHeroLayout";
 import WordHovering from "../../../gui/WordHovering";
-import {Box, Grid, MenuItem, Select} from "@material-ui/core";
+import {Box, Grid, MenuItem, Select, useMediaQuery} from "@material-ui/core";
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -12,10 +12,6 @@ const styles = (theme: Theme) =>
             // backgroundImage: `url(${backgroundImage})`,
             // backgroundColor: "#7fc7d9", // Average color of the background image.
             backgroundPosition: "center",
-        },
-        button: {
-            minWidth: 200,
-            backgroundColor: "#f50057"
         },
         h5: {
             marginBottom: theme.spacing(2),
@@ -57,7 +53,7 @@ const styles = (theme: Theme) =>
             height: "2em"
         },
         mainGrid: {
-            padding: "2em",
+            padding: "0.5em",
         },
         turu: {
             backgroundColor: "red"
@@ -66,7 +62,8 @@ const styles = (theme: Theme) =>
 
 function ProductHero(props: WithStyles<typeof styles>) {
     const {classes} = props;
-    const loroIcon = "/loro.svg";
+    const isDesktop = useMediaQuery('(min-width:600px)');
+    const loroIcon = "./loro.svg";
 
     return (
         <ProductHeroLayout backgroundClassName={classes.background}>
@@ -87,7 +84,7 @@ function ProductHero(props: WithStyles<typeof styles>) {
                             variant="contained"
                             color="primary"
                             component="a"
-                            href="https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp?hl=en&authuser=0"
+                            href="https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp"
                         >
                             <Typography align="center">
                                 Add to Chrome for free

@@ -17,13 +17,16 @@ const myStyles = makeStyles({
     },
     envelope: {
         minWidth: 120,
-        minHeight: 120
+        minHeight: 100
     },
     loroIcon: {
         position: "fixed",
         bottom: "0",
         width: "38px",
-        height: "32px"
+        height: "32px",
+        right: "0px",
+        transform: "scale(2, 2)",
+        margin: "-40px -20px -10px -0px"
     }
 });
 
@@ -38,8 +41,8 @@ const TranslationCard = ({original, translated, updateModal}: TranslationCardPro
     const classes = myStyles();
     return (
         <Card className={classes.envelope} >
-            <img className={classes.loroIcon} src="/icon-card.png"/>
             <CardContent className={classes.cardContent}>
+                <img className={classes.loroIcon} src="./loro.svg"/>
                 <Typography variant="h6" component="span">
                     {original}
                 </Typography>

@@ -55,9 +55,10 @@ const useStyles = makeStyles((theme: Theme) =>
                 display: 'none',
             },
         },
-        button2: {
+        button: {
             backgroundColor: theme.palette.secondary.light,
-            color: "white"
+            color: "white",
+            margin: theme.spacing(2, 0),
         },
         topItemBox: {
             marginLeft: "10px",
@@ -93,6 +94,10 @@ export default function PrimarySearchAppBar() {
         setMobileMoreAnchorEl(event.currentTarget);
     };
 
+    const goToChromeStore = ()=> {
+        window.location.href="https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp"
+    };
+
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
         <Menu
@@ -120,10 +125,10 @@ export default function PrimarySearchAppBar() {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
-            <MenuItem>
+            <MenuItem onClick={goToChromeStore}>
                 <p>Add to chrome</p>
             </MenuItem>
-            <MenuItem>
+            <MenuItem onClick={()=>{window.location.href="https://docs.google.com/forms/d/e/1FAIpQLSeLWDiAocLZ2GGXBAFd3GsM2ukI42ZxhT8UBGj-ZlbLzcM78g/viewform"}}>
                 <p>Contact</p>
             </MenuItem>
         </Menu>
@@ -145,18 +150,17 @@ export default function PrimarySearchAppBar() {
                             alignItems="center"
                         >
                             <Box className={classes.topItemBox}>
-                                <Typography className={classes.title} variant="h5" noWrap>
-                                    Contact
-                                </Typography>
-                            </Box>
-                            <Box className={classes.topItemBox}>
                                 <Button
-                                    size="small"
+                                    className={classes.button}
+                                    size="large"
                                     variant="contained"
-                                    className={classes.button2}
-                                    to="/sign-up/"
+                                    color="secondary"
+                                    component="a"
+                                    href="https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp"
                                 >
-                                    Add to Chrome
+                                    <Typography align="center">
+                                        Add to Chrome
+                                    </Typography>
                                 </Button>
                             </Box>
                         </Grid>

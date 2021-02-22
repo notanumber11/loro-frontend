@@ -25,8 +25,8 @@ const useStyles = makeStyles((theme: Theme) => ({
         backgroundColor: theme.palette.secondary.light,
     },
     container: {
-        marginTop: theme.spacing(8),
-        marginBottom: theme.spacing(8),
+        marginTop: theme.spacing(1),
+        marginBottom: theme.spacing(1),
         display: "flex",
     },
     iconsWrapper: {
@@ -70,8 +70,8 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const LANGUAGES = [
     {
-        code: "es-ES",
-        name: "Español",
+        code: "en",
+        name: "English",
     }
 ];
 
