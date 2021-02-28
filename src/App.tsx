@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
 import Home from "./onepirate/Home";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import Privacy from "./onepirate/Privacy";
-import SignIn from "./onepirate/SignIn";
+import OnBoarding from "./onepirate/OnBoarding";
 import SignUp from "./onepirate/SignUp";
 import ForgotPassword from "./onepirate/ForgotPassword";
 import Terms from "./onepirate/Terms";
@@ -19,20 +19,20 @@ function App() {
           <Route path="/sign-up">
             <SignUp />
           </Route>
-          <Route path="/sign-in">
-            <SignIn />
+          <Route path="/loroOnBoarding">
+            <OnBoarding />
           </Route>
           <Route path="/privacy">
             <Privacy />
           </Route>
-          <Route path="/terms">
+          <Route path="/contact">
             <Terms />
           </Route>
           <Route path="/">
             <Home />
           </Route>
           <Route path="/how-it-works">
-            <SignIn />
+            <OnBoarding />
           </Route>
         </Switch>
       </Router>

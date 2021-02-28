@@ -61,8 +61,6 @@ const styles = (theme: Theme) =>
         }
     });
 
-const loroIcon = "/loro.svg";
-
 interface ProductHeroLayoutProps {
     backgroundClassName: string;
 }

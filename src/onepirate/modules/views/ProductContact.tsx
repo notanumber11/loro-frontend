@@ -3,6 +3,7 @@ import {createStyles, Theme, withStyles, WithStyles,} from "@material-ui/core/st
 import Typography from "../components/Typography";
 import {Box, Grid} from "@material-ui/core";
 import Button from "../components/Button";
+import {useTranslation} from "react-i18next";
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -64,6 +65,7 @@ const styles = (theme: Theme) =>
 
 function ProductContact(props: WithStyles<typeof styles>) {
     const {classes} = props;
+    const {t} = useTranslation();
 
     return (
         <section>
@@ -76,14 +78,14 @@ function ProductContact(props: WithStyles<typeof styles>) {
                     className={classes.topBox}
                 >
                     <Typography variant="h3" className={classes.title}>
-                        Contact
+                        {t("Contact")}
                     </Typography>
                 </Grid>
                 <div className={classes.contactContent}>
                     <Box flexDirection="column" display="flex" alignItems="center" justifyContent="center" m={5} p={1}>
                         <Box>
                             <Typography variant="h4" align="center">
-                                Got any questions? Need help?
+                                {t("Got any questions? Need help?")}
                             </Typography>
                         </Box>
                         <Box>
@@ -92,12 +94,12 @@ function ProductContact(props: WithStyles<typeof styles>) {
                                 component="a"
                                 href="https://docs.google.com/forms/d/e/1FAIpQLSeLWDiAocLZ2GGXBAFd3GsM2ukI42ZxhT8UBGj-ZlbLzcM78g/viewform"
                                 className={classes.button}>
-                                Contact us
+                                {t("Contact us")}
                             </Button>
                         </Box>
                         <Box p={1}>
                             <Typography variant="subtitle1" className={classes.link} align="center">
-                                We are here to help. Get in touch!
+                                {t("We are here to help. Get in touch!")}
                             </Typography>
                         </Box>
                         <Box p={1}>

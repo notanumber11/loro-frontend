@@ -5,8 +5,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Box from "@material-ui/core/Box";
 import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
-import ReportProblemIcon from "@material-ui/icons/ReportProblem";
 
 const myStyles = makeStyles({
     cardContent: {
@@ -42,7 +40,7 @@ const TranslationCard = ({original, translated, updateModal}: TranslationCardPro
     return (
         <Card className={classes.envelope} >
             <CardContent className={classes.cardContent}>
-                <img className={classes.loroIcon} src="./loro.svg"/>
+                <img alt="loroIcon" className={classes.loroIcon} src="./loro.svg"/>
                 <Typography variant="h6" component="span">
                     {original}
                 </Typography>

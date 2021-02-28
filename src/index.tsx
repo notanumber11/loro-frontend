@@ -3,7 +3,11 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-
+import i18n from "./i18n"
+// Ensure i18n is bundled
+if (i18n == null) {
+    console.log("Problems with i18n, it is null");
+}
 ReactDOM.render(
   <React.StrictMode>
     <App />

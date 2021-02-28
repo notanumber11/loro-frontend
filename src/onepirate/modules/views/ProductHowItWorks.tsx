@@ -3,6 +3,7 @@ import {createStyles, Theme, withStyles, WithStyles,} from "@material-ui/core/st
 import Typography from "../components/Typography";
 import {Box, Grid, useMediaQuery} from "@material-ui/core";
 import Button from "../components/Button";
+import {useTranslation} from "react-i18next";
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -63,6 +64,7 @@ const styles = (theme: Theme) =>
     });
 
 function ProductHowItWorks(props: WithStyles<typeof styles>) {
+    const {t} = useTranslation();
     const {classes} = props;
     const isDesktop = useMediaQuery('(min-width:600px)');
 
@@ -78,7 +80,7 @@ function ProductHowItWorks(props: WithStyles<typeof styles>) {
                         alignItems="center"
                     >
                         <Typography variant="h3" className={classes.title} align="center">
-                            How it works
+                            {t("How it works")}
                         </Typography>
                     </Grid>
                 </div>
@@ -93,7 +95,7 @@ function ProductHowItWorks(props: WithStyles<typeof styles>) {
                                     className={classes.image}
                                 />
                                 <Typography variant="h5" align="center">
-                                    Install the browser extension for free.
+                                    {t("Install the browser extension for free.")}
                                 </Typography>
                             </div>
                         </Grid>
@@ -106,7 +108,7 @@ function ProductHowItWorks(props: WithStyles<typeof styles>) {
                                     className={classes.image}
                                 />
                                 <Typography variant="h5" align="center">
-                                    Choose the language you want to learn and the difficulty.
+                                    {t("Choose the language you want to learn and the difficulty.")}
                                 </Typography>
                             </div>
                         </Grid>
@@ -119,7 +121,7 @@ function ProductHowItWorks(props: WithStyles<typeof styles>) {
                                     className={classes.image}
                                 />
                                 <Typography variant="h5" align="center">
-                                    Browse as normal and start to learn!
+                                    {t("Browse as normal and start to learn!")}
                                 </Typography>
                             </div>
                         </Grid>
@@ -134,7 +136,7 @@ function ProductHowItWorks(props: WithStyles<typeof styles>) {
                             href="https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp"
                         >
                             <Typography align="center">
-                                {isDesktop ? "Add to Chrome for free" : "Add to Chrome"}
+                                {isDesktop ? t("Add to Chrome for free") : t("Add to Chrome")}
                             </Typography>
                         </Button>
                     </Box>

@@ -1,9 +1,8 @@
 import React, {useEffect} from "react";
 import {createStyles, Theme, withStyles, WithStyles,} from "@material-ui/core/styles";
 import Typography from "../components/Typography";
-import {Box, Grid, Paper, useMediaQuery} from "@material-ui/core";
-import Button from "../components/Button";
-import LoroConf from "../../../LoroConf";
+import {Grid, Paper, useMediaQuery} from "@material-ui/core";
+import {useTranslation} from "react-i18next";
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -61,12 +60,14 @@ const styles = (theme: Theme) =>
 
 function ProductOpinions(props: WithStyles<typeof styles>) {
     const {classes} = props;
+    const {t} = useTranslation();
+
     const isDesktop = useMediaQuery('(min-width:600px)');
 
     useEffect(() => {
         let items = document.getElementsByClassName(classes.itemDesktop);
         let maxHeight = 0;
-        for(let i=0; i<items.length; i++) {
+        for (let i = 0; i < items.length; i++) {
             let current = items[i];
             // @ts-ignore
             let height = current.scrollHeight;
@@ -76,14 +77,14 @@ function ProductOpinions(props: WithStyles<typeof styles>) {
         }
         maxHeight += 50;
 
-        for(let i=0; i<items.length; i++) {
+        for (let i = 0; i < items.length; i++) {
             let current = items[i];
             if (isDesktop) {
                 // @ts-ignore
                 current.style.height = `${maxHeight}px`;
             } else {
                 // @ts-ignore
-                current.style.height= `${current.scrollHeight + 50}px`;
+                current.style.height = `${current.scrollHeight + 50}px`;
             }
 
         }
@@ -101,22 +102,20 @@ function ProductOpinions(props: WithStyles<typeof styles>) {
                     >
                         <Typography variant="h3" className={classes.title} align="center">
                             {
-                                isDesktop ? "What other learners are saying" : "Reviews"
+                                isDesktop ? t("What other learners are saying") : t("Reviews")
                             }
 
                         </Typography>
                     </Grid>
                 </div>
                 <div>
-                    <Grid container spacing={10} className={ isDesktop ? classes.reviewsGridDesktop : classes.reviewsGridMobile}>
+                    <Grid container spacing={10}
+                          className={isDesktop ? classes.reviewsGridDesktop : classes.reviewsGridMobile}>
                         <Grid item xs={12} md={4}>
                             <Paper elevation={10} className={classes.itemDesktop}>
                                 <Typography variant="h5">
-                                    Loved the seamlessness of the chrome extension Loro. Responses and
-                                    translations
-                                    were pretty correct and apt. I am planning to visit Spain soon and Loro
-                                    is
-                                    definitely my language companion.
+                                    {t(
+                                        "Caleb")}
                                 </Typography>
 
                                 <Typography variant="h4" color="primary" align="right" className={classes.footerAuthor}>
@@ -128,10 +127,12 @@ function ProductOpinions(props: WithStyles<typeof styles>) {
                             <div>
                                 <Paper elevation={10} className={classes.itemDesktop}>
                                     <Typography variant="h5">
-                                        It's a pretty original idea that allows to learn new words effortless. Its UI
-                                        and design is also modern and eye-candy so it is really easy to use.
+                                        {t(
+                                            "Armando"
+                                        )}
                                     </Typography>
-                                    <Typography variant="h4" color="primary" align="right" className={classes.footerAuthor}>
+                                    <Typography variant="h4" color="primary" align="right"
+                                                className={classes.footerAuthor}>
                                         Armando
                                     </Typography>
                                 </Paper>
@@ -141,12 +142,10 @@ function ProductOpinions(props: WithStyles<typeof styles>) {
                             <div>
                                 <Paper elevation={10} className={classes.itemDesktop}>
                                     <Typography variant="h5">
-                                        Loro is so easy to use! I don't have much time in my busy life to spend
-                                        studying Spanish, but this made it so easy to learn as I go about my daily
-                                        online reading.
-
+                                        {t("Anna")}
                                     </Typography>
-                                    <Typography variant="h4" color="primary" align="right" className={classes.footerAuthor}>
+                                    <Typography variant="h4" color="primary" align="right"
+                                                className={classes.footerAuthor}>
                                         Anna
                                     </Typography>
                                 </Paper>

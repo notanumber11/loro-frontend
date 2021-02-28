@@ -29,20 +29,7 @@ type ToolTipProps = {
 const WordHovering = (toolTipProps: ToolTipProps) => {
     const classes = useStyles();
 
-    const [isModalOpen, setModalOpenStatus] = React.useState(false);
-
     const [isHovering, setHovering] = React.useState(false);
-
-    const wordSeenListener = (isVisible: boolean) => {
-        if (isVisible) {
-            // TODO: Store which words the user has seen
-            // console.log("Element visible: " + toolTipProps.translated);
-        }
-    };
-
-    const setModalVisibilityCallback = (val: boolean) => {
-        setModalOpenStatus(val);
-    };
 
     const frameStyles = {
         width: "0px",
@@ -77,7 +64,7 @@ const WordHovering = (toolTipProps: ToolTipProps) => {
                                     // @ts-ignore
                                     <DemoFrame frameStyles={frameStyles}>
                                         <TranslationCard original={toolTipProps.original} translated={toolTipProps.translated}
-                                                         updateModal={setModalVisibilityCallback}/>
+                                                         updateModal={()=>{}}/>
                                     </DemoFrame>
                                 }
                             </ThemeProvider>

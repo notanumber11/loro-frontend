@@ -4,15 +4,18 @@ import React from "react";
 import AppFooter from "./modules/views/AppFooter";
 import ProductHero from "./modules/views/ProductHero";
 import ProductHowItWorks from "./modules/views/ProductHowItWorks";
-import AppAppBar from "./modules/views/AppAppBar";
+import AppBar from "./modules/views/AppBar";
 import ProductOpinions from "./modules/views/ProductOpinions";
 import ProductContact from "./modules/views/ProductContact";
 import ProductReadyToLearn from "./modules/views/ProductReadyToLearn";
+import i18next from "i18next";
+import LoroConf from "../LoroConf";
 
 function Index() {
-  return (
+    i18next.changeLanguage(LoroConf.getLanguage());
+    return (
     <React.Fragment>
-        <AppAppBar/>
+        <AppBar/>
         <ProductHero />
         <ProductHowItWorks />
         <ProductOpinions />

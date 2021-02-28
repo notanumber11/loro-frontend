@@ -3,7 +3,7 @@ import {createStyles, Theme, withStyles, WithStyles,} from "@material-ui/core/st
 import Typography from "../components/Typography";
 import {Box, Grid, useMediaQuery} from "@material-ui/core";
 import Button from "../components/Button";
-import WordHovering from "../../../gui/WordHovering";
+import {useTranslation} from "react-i18next";
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -61,6 +61,7 @@ function ProductReadyToLearn(props: WithStyles<typeof styles>) {
     const {classes} = props;
     const loroIcon = "./loro.svg";
     const isDesktop = useMediaQuery('(min-width:600px)');
+    const {t} = useTranslation();
 
     return (
         <section>
@@ -73,7 +74,7 @@ function ProductReadyToLearn(props: WithStyles<typeof styles>) {
                     className={classes.topBox}
                 >
                     <Typography variant="h3" className={classes.title} align="center">
-                        Ready to learn?
+                        {t("Ready to learn?")}
                     </Typography>
                 </Grid>
                 <div className={classes.contactContent}>
@@ -83,7 +84,7 @@ function ProductReadyToLearn(props: WithStyles<typeof styles>) {
                         </Box>
                         <Box m={1} p={1}>
                             <Typography variant="h5" align="center">
-                                Install for free and start learning a <WordHovering original="new" translated="nuevo"/> language.
+                                {t("Install for free and start learning a new language.")}
                             </Typography>
                         </Box>
                         <Box>
@@ -96,7 +97,7 @@ function ProductReadyToLearn(props: WithStyles<typeof styles>) {
                                 href="https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp"
                             >
                                 <Typography align="center">
-                                    {isDesktop ? "Add to Chrome for free" : "Add to Chrome"}
+                                    {isDesktop ? t("Add to Chrome for free") : t("Add to Chrome")}
                                 </Typography>
                             </Button>
                         </Box>

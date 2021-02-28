@@ -3,16 +3,18 @@ import {makeStyles, Theme} from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
 import Container from "@material-ui/core/Container";
 import Typography from "../components/Typography";
-import TextField from "../components/TextField";
 import {Link as RouterLink} from "react-router-dom";
-import {Box, Grid} from "@material-ui/core";
+import {Box, Grid, MenuItem, Select} from "@material-ui/core";
+import i18next from "i18next";
+import {useTranslation} from "react-i18next";
+import LoroConf from "../../../LoroConf";
 
 function Copyright() {
     return (
         <React.Fragment>
             {"© "}
             <Link color="inherit" href="https://material-ui.com/">
-                Your Website
+                Loro
             </Link>{" "}
             {new Date().getFullYear()}
         </React.Fragment>
@@ -65,83 +67,92 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     footerSubtitles: {
         color: "white"
+    },
+    whiteTypography: {
+        color: "white"
+    },
+    selectBackground: {
+        backgroundColor: theme.palette.primary.main,
     }
 }));
 
-const LANGUAGES = [
-    {
-        code: "en",
-        name: "English",
-    }
-];
-
 export default function AppFooter() {
+    const {t} = useTranslation();
+
     const classes = useStyles();
+    const [languageState, setLanguageState] = React.useState(LoroConf.getLanguage);
+
+    const onLanguageChange = (event: React.ChangeEvent<{ name?: string; value: unknown }>) => {
+        let value = event.target.value as string;
+        console.log("Changing language to: ", value);
+        i18next.changeLanguage(value);
+        LoroConf.setLanguage(value);
+        setLanguageState(value);
+    };
 
     return (
         <Typography component="footer" className={classes.root}>
             <Container className={classes.container}>
-
-              <Grid container spacing={3}>
-                <Grid item xs={12}>
-                  <Box display="flex" flexDirection="row" p={1} m={1}>
-                    <Box p={1} m={2}>
-                      <div id="legal">
-                        <Typography variant="h6" marked="left" gutterBottom className={classes.footerTitles}>
-                          Legal
-                        </Typography>
-                        <ul className={classes.list}>
-                          <li className={classes.listItem}>
-                            <Link component={RouterLink} to="/terms/">
-                              <Typography className={classes.footerSubtitles}>
-                                Terms
-                              </Typography>
-                            </Link>
-                          </li>
-                          <li className={classes.listItem}>
-                            <Link component={RouterLink} to="/privacy/">
-                              <Typography className={classes.footerSubtitles}>
-                                Privacy
-                              </Typography>
-                            </Link>
-                          </li>
-                        </ul>
-                      </div>
-                    </Box>
-                    <Box p={1} m={2}>
-                      <div id="languageSwitch">
-                        <Typography variant="h6" marked="left" gutterBottom className={classes.footerTitles}>
-                          Language
-                        </Typography>
-                        <TextField
-                            select
-                            SelectProps={{
-                              native: true,
-                            }}
-                            className={classes.language}
-                        >
-                          {LANGUAGES.map((language) => (
-                              <option value={language.code} key={language.code}>
-                                {language.name}
-                              </option>
-                          ))}
-                        </TextField>
-                      </div>
-                    </Box>
-                  </Box>
+                <Grid container spacing={3}>
+                    <Grid item xs={12}>
+                        <Box display="flex" flexDirection="row" p={1} m={1}>
+                            <Box p={1} m={2}>
+                                <div id="legal">
+                                    <Typography variant="h6" marked="left" gutterBottom
+                                                className={classes.footerTitles}>
+                                        {t("Legal")}
+                                    </Typography>
+                                    <ul className={classes.list}>
+                                        <li className={classes.listItem}>
+                                            <Link component={RouterLink} to="/privacy/">
+                                                <Typography className={classes.footerSubtitles}>
+                                                    {t("Privacy")}
+                                                </Typography>
+                                            </Link>
+                                        </li>
+                                        <li className={classes.listItem}>
+                                            <Link
+                                                href="https://docs.google.com/forms/d/e/1FAIpQLSeLWDiAocLZ2GGXBAFd3GsM2ukI42ZxhT8UBGj-ZlbLzcM78g/viewform">
+                                                <Typography className={classes.footerSubtitles}>
+                                                    {t("Contact")}
+                                                </Typography>
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </Box>
+                            <Box p={1} m={2}>
+                                <div id="languageSwitch">
+                                    <Typography variant="h6" marked="left" gutterBottom
+                                                className={classes.footerTitles}>
+                                        {t("Language")}
+                                    </Typography>
+                                    <Select
+                                        labelId="demo-controlled-open-select-label"
+                                        id="demo-controlled-open-select"
+                                        onChange={onLanguageChange}
+                                        value={languageState}
+                                    >
+                                        <MenuItem value={"en"}><Typography>English</Typography> </MenuItem>
+                                        <MenuItem value={"es"}><Typography>Español</Typography> </MenuItem>
+                                        <MenuItem value={"pl"}><Typography>Polski </Typography> </MenuItem>
+                                    </Select>
+                                </div>
+                            </Box>
+                        </Box>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <div id="iconAttribution">
+                            <Typography variant="caption" className={classes.footerSubtitles}>
+                                <div>{t("Icons designed by")} <a href="https://www.flaticon.es/autores/freepik"
+                                                             title="Freepik">Freepik</a> from <a
+                                    href="https://www.flaticon.es/"
+                                    title="Flaticon">www.flaticon.es</a>
+                                </div>
+                            </Typography>
+                        </div>
+                    </Grid>
                 </Grid>
-                <Grid item xs={12}>
-                  <div id="iconAttribution">
-                    <Typography variant="caption" className={classes.footerSubtitles}>
-                      <div>Iconos diseñados por <a href="https://www.flaticon.es/autores/freepik"
-                                                   title="Freepik">Freepik</a> from <a
-                          href="https://www.flaticon.es/"
-                          title="Flaticon">www.flaticon.es</a>
-                      </div>
-                    </Typography>
-                  </div>
-                </Grid>
-              </Grid>
             </Container>
         </Typography>
     );

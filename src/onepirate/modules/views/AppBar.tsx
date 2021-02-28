@@ -9,6 +9,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 import Button from "../components/Button";
 import {Box, Grid} from "@material-ui/core";
+import {useTranslation} from "react-i18next";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -64,24 +65,15 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function PrimarySearchAppBar() {
     const classes = useStyles();
-    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
+    const {t} = useTranslation();
 
-    const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-    const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
 
     const handleMobileMenuClose = () => {
         setMobileMoreAnchorEl(null);
     };
 
-    const handleMenuClose = () => {
-        setAnchorEl(null);
-        handleMobileMenuClose();
-    };
 
     const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
         setMobileMoreAnchorEl(event.currentTarget);
@@ -90,8 +82,6 @@ export default function PrimarySearchAppBar() {
     const goToChromeStore = () => {
         window.location.href = "https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp"
     };
-
-    const menuId = 'primary-search-account-menu';
 
     const mobileMenuId = 'primary-search-account-menu-mobile';
     const renderMobileMenu = (
@@ -105,12 +95,12 @@ export default function PrimarySearchAppBar() {
             onClose={handleMobileMenuClose}
         >
             <MenuItem onClick={goToChromeStore}>
-                <p>Add to chrome</p>
+                <p>{t("Add to Chrome")}</p>
             </MenuItem>
             <MenuItem onClick={() => {
                 window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSeLWDiAocLZ2GGXBAFd3GsM2ukI42ZxhT8UBGj-ZlbLzcM78g/viewform"
             }}>
-                <p>Contact</p>
+                <p>{t("Contact")}</p>
             </MenuItem>
         </Menu>
     );
@@ -119,9 +109,14 @@ export default function PrimarySearchAppBar() {
         <div className={classes.grow}>
             <AppBar position="static">
                 <Toolbar>
-                    <Typography className={classes.title} variant="h4" noWrap>
-                        Loro
-                    </Typography>
+                    <MenuItem onClick={() => {
+                        window.location.href = window.location.origin.includes("localhost") ? window.location.origin : (window.location.origin + "/loro")
+                    }}>
+                        <Typography className={classes.title} variant="h4" noWrap>
+                            Loro
+                        </Typography>
+                    </MenuItem>
+
                     <div className={classes.grow}/>
                     <div className={classes.sectionDesktop}>
                         <Grid
@@ -140,7 +135,7 @@ export default function PrimarySearchAppBar() {
                                     href="https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp"
                                 >
                                     <Typography align="center">
-                                        Add to Chrome
+                                        {t("Add to Chrome")}
                                     </Typography>
                                 </Button>
                             </Box>
