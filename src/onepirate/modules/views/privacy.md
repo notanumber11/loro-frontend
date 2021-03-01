@@ -11,7 +11,7 @@ Our mission is to teach new languages not to spy on you.
 
 ## **Data collection and usage**
 
-We may collect and process the following personal information from you if you are logged into our extension or webpage. Yoy may use the extension without log in but in such case some features as statistics will not work.
+We may collect and process the following personal information from you while you are using our extension or webpage:
 
  - **For tracking learning progress:** The original and translated words translated by Loro that are showed to you.
  - **For tracking errors specific to certain websites:** When you report an error through our submission tool we collect url, original and translated word.
