@@ -89,20 +89,24 @@ function ProductHero(props: WithStyles<typeof styles>) {
         // user wants to learn
         let r = content;
         for (let i = 0; i < arrayOfWords.length; i++) {
-            let word = arrayOfWords[i];
-            let lanToLearn = languageToLearnState;
-            console.log("Checking if is included");
-            if (!LoroConf.getAvailableLanguagesToLearn().includes(languageToLearnState)) {
-                lanToLearn = LoroConf.getAvailableLanguagesToLearn()[0];
-                setLanguageToLearnState(lanToLearn);
+            try {
+                let word = arrayOfWords[i];
+                let lanToLearn = languageToLearnState;
+                console.log("Checking if is included");
+                if (!LoroConf.getAvailableLanguagesToLearn().includes(languageToLearnState)) {
+                    lanToLearn = LoroConf.getAvailableLanguagesToLearn()[0];
+                    setLanguageToLearnState(lanToLearn);
+                }
+                let translated = LoroConf.replaceWord(LoroConf.getLanguage(), lanToLearn, word);
+                let regEx = new RegExp('(' + word + ')', 'gi');
+                // @ts-ignore
+                r = replaceJSX(r, regEx, (match, j) => {
+                    let key = Math.random() * 100 * j;
+                    return <WordHovering key={key} original={match} translated={translated}/>
+                });
+            } catch (e) {
+                console.error("Problems replacing word: ", arrayOfWords[i]);
             }
-            let translated = LoroConf.replaceWord(LoroConf.getLanguage(), lanToLearn, word);
-            let regEx = new RegExp('(' + word + ')', 'gi');
-            // @ts-ignore
-            r = replaceJSX(r, regEx, (match, j) => {
-                let key = Math.random() * 100 * j;
-                return <WordHovering key={key} original={match} translated={translated}/>
-            });
         }
         return r;
     }

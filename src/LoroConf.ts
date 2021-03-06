@@ -63,6 +63,24 @@ export default class LoroConf {
                 "otro": "outro"
             },
         },
+        "pl": {
+            "words": ["słowa", "nowego", "innym"],
+            "es": {
+                "słowa": "palabras",
+                "nowego": "nuevo",
+                "innym": "otro"
+            },
+            "de": {
+                "słowa": "wörter",
+                "nowego": "neu",
+                "innym": "andere"
+            },
+            "en": {
+                "słowa": "words",
+                "nowego": "nouveau",
+                "innym": "autre"
+            }
+        },
     };
 
     private static language = null;
@@ -80,6 +98,10 @@ export default class LoroConf {
     public static getLanguage(): string {
         if (LoroConf.language == null) {
             let browserLanguage = window.navigator.language;
+            if (browserLanguage == null) {
+                return "en";
+            }
+            browserLanguage = browserLanguage.toLowerCase();
             if(browserLanguage.includes("es")) {
                 browserLanguage = "es";
             }
@@ -93,8 +115,13 @@ export default class LoroConf {
     }
 
     public static getWordsToTranslate(lanSrc:string) {
-        // @ts-ignore
-        return this.mapToTranslations[lanSrc]["words"];
+        try {
+            // @ts-ignore
+            return this.mapToTranslations[lanSrc]["words"];
+        } catch (e) {
+            console.error("Problems retriving words to translate for mother tongue=", lanSrc);
+        }
+        return []
     }
 
     public static replaceWord(lanSrc:string, lanDst:string, word:string) {
