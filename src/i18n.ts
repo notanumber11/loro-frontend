@@ -130,29 +130,28 @@ const resources = {
         translation: {
             // ProductHero
             "Learn new languages by browsing the web": "Ucz się nowych języków podczas surfowania w internecie",
-            "Short description": "Darmowa wtyczka dla Google Chrome, która pomoże Ci nauczyć się nowego języka bez wysiłku",
+            "Short description": "Darmowe rozszerzenie Google Chrome, które pomoże Ci nauczyć się nowego języka bez wysiłku",
             "Add to Chrome for free": "Dodaj do Chrome za darmo",
             "Add to Chrome": "Dodaj do Chrome",
             "I want to learn": "Chcę się uczyć:",
             "Loro explained":
                 `
-            Podczas przeglądania stron internetowych Loro tłumaczy niektóre słowa, dzięki czemu się uczysz
+            Podczas przeglądania stron internetowych Loro automatycznie tłumaczy niektóre słowa, dzięki czemu uczysz się
             nowego języka bez żadnego wysiłku.
             Spójrz na słowa z niebieskim tłem, a zobaczysz że są one w innym języku. Najedź myszką na jedno ze słów,
             aby zobaczyć tłumaczenie.
             `,
             // ProductHowItWorks
             "How it works": "Jak to działa",
-            "Install the browser extension for free.": "Zainstaluj wtyczkę za darmo.",
+            "Install the browser extension for free.": "Zainstaluj rozszerzenie za darmo.",
             "Choose the language you want to learn and the difficulty.": "Wybierz język, którego chcesz się uczyć oraz poziom trudności.",
-            "Browse as normal and start to learn!": "Przeglądaj strony internetowe i zacznij naukę!",
+            "Browse as normal and start to learn!": "Przeglądaj strony internetowe, aby rozpocząć naukę!",
             // ProductOpinions
             "What other learners are saying": "Co inni użytkownicy mówią",
             "Reviews": "Opinie",
             "Caleb": `
-        Uwielbiam jakość tego rozszerzenia dla Google Chrome. Odpowiedzi i
-        tłumaczenia
-        były poprawne i trafne. Planuję wkrótce odwiedzić Hiszpanię i Loro
+        Uwielbiam jakość tego rozszerzenia dla Google Chrome. Tłumaczenia
+        są poprawne i trafne. Planuję wkrótce odwiedzić Hiszpanię i Loro
         jest
         zdecydowanie moim towarzyszem językowym.
             `,
@@ -162,20 +161,20 @@ const resources = {
             `,
             "Anna": `
         Loro jest niezwykle łatwy w użyciu! Codziennie nie mam zbyt wiele czasu na naukę hiszpańskiego,
-        ale to rozszerzenie sprawiło, że łatwo się uczę nowych słów podczas codziennych zajęć
+        ale to rozszerzenie sprawiło, że łatwo się uczę nowych słów podczas codziennych zajęć.
         `,
             // ProductContact
             "Contact": "Kontakt",
             "Contact us": "Skontaktuj się z nami",
             "Got any questions? Need help?": "Masz jakieś pytania? Potrzebujesz pomocy?",
-            "We are here to help. Get in touch!": "Jesteśmy po to, aby pomóc. Skontaktuj się!",
+            "We are here to help. Get in touch!": "Jesteśmy po to, aby pomóc.",
 
             // ProductReadyToLearn
             "Ready to learn?": "Gotowy do nauki?",
             "Install for free and start learning a new language.": "Zainstaluj darmową wtyczkę i zacznij uczyć się nowych języków.",
 
             // Footer
-            "Legal": "Legal",
+            "Legal": "Inne",
             "Privacy": "Prywatność",
             "Language": "Język",
             "Icons designed by": "Logo zaprojektowane przez",
