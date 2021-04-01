@@ -2,8 +2,8 @@ export default class LoroConf {
 
     public static readonly AVAILABLE_LANGUAGES: Map<string, Array<string>> = new Map([
         ["es", ["en", "fr", "it", "pl", "pt"]],
-        ["en", ["de", "es", "fr"]],
-        ["pl", ["de", "es", "en"]],
+        ["en", ["es", "fr", "de"]],
+        ["pl", ["en", "es", "de"]],
     ]);
 
     public static readonly LANGUAGE_CODE_TO_LANGUAGE: Map<string, string> = new Map([

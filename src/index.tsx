@@ -8,6 +8,7 @@ import i18n from "./i18n"
 if (i18n == null) {
     console.log("Problems with i18n, it is null");
 }
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

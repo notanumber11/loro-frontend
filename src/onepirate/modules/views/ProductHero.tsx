@@ -117,7 +117,8 @@ function ProductHero(props: WithStyles<typeof styles>) {
         for (let lan of languagesToLearn) {
             items.push(
                 <MenuItem key={lan} value={lan}>
-                    <Typography variant="h4" color="secondary"> {LoroConf.LANGUAGE_CODE_TO_LANGUAGE.get(lan)} </Typography>
+                    <Typography variant="h4"
+                                color="secondary"> {LoroConf.LANGUAGE_CODE_TO_LANGUAGE.get(lan)} </Typography>
                 </MenuItem>
             );
         }
