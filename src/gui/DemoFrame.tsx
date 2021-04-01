@@ -8,14 +8,19 @@ import { StylesProvider } from "@material-ui/styles";
 import NoSsr from "@material-ui/core/NoSsr";
 import Frame from "react-frame-component";
 
-class DemoFrame extends React.Component {
+type DemoFrameProps = {
+    frameStyles: any,
+}
+
+class DemoFrame extends React.Component<DemoFrameProps> {
     state = {
         ready: false
     };
 
-    constructor(props) {
+    constructor(props:DemoFrameProps) {
         super(props);
         this.span = React.createRef();
+        this.interval = null;
     }
 
     handleRef = ref => {
@@ -33,20 +38,32 @@ class DemoFrame extends React.Component {
             sheetsManager: new Map(),
             container: this.contentDocument.body
         });
+        this.applyCssOverrides();
+        this.interval = setInterval(()=>this.applyCssOverrides() , 500);
     };
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
 
     // https://www.tutorialrepublic.com/faq/automatically-adjust-iframe-height-according-to-its-contents-using-javascript.php#:~:text=Answer%3A%20Use%20the%20contentWindow%20Property,no%20vertical%20scrollbar%20will%20appear.
     applyCssOverrides() {
+        this.counterInterval += 1;
         let fr = this.span.current.getElementsByTagName("iframe")[0];
-        // Remove default 8px margin that chrome applies to the new <body> under the <iframe>
-        fr.contentDocument.getElementsByTagName("body")[0].setAttribute("style", "margin:0px");
-        // Adjust automatically the size of the frame
-        let width  = fr.contentWindow.document.body.scrollWidth;
-        let height = fr.contentWindow.document.body.scrollHeight;
-        fr.width = width;
-        fr.height = height;
-        fr.style.width = `${width}px`;
-        fr.style.height= `${height}px`;
+        if (fr) {
+            // Remove default 8px margin that chrome applies to the new <body> under the <iframe>
+            fr.contentDocument.getElementsByTagName("body")[0].setAttribute("style", "margin:0px");
+            // Adjust automatically the size of the frame
+            let width  = fr.contentWindow.document.body.scrollWidth;
+            let height = fr.contentWindow.document.body.scrollHeight;
+            // console.log(`The size is: ${width} x ${height}`);
+            fr.width = width;
+            fr.height = height;
+            fr.style.width = `${width}px`;
+            fr.style.height= `${height}px`;
+            fr.style.setProperty("width", fr.style.width, "important");
+            fr.style.setProperty("height", fr.style.height, "important");
+        }
     }
 
     onContentDidUpdate = () => {
@@ -92,3 +109,4 @@ DemoFrame.propTypes = {
 };
 
 export default DemoFrame;
+

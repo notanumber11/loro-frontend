@@ -4,6 +4,7 @@ import Typography from "../components/Typography";
 import {Box, Grid, useMediaQuery} from "@material-ui/core";
 import Button from "../components/Button";
 import {useTranslation} from "react-i18next";
+import LoroConf from "../../../LoroConf";
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -132,8 +133,7 @@ function ProductHowItWorks(props: WithStyles<typeof styles>) {
                             size="large"
                             variant="contained"
                             color="primary"
-                            component="a"
-                            href="https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp"
+                            onClick={()=> LoroConf.ctaAddToChrome("HowItWorks")}
                         >
                             <Typography align="center">
                                 {isDesktop ? t("Add to Chrome for free") : t("Add to Chrome")}

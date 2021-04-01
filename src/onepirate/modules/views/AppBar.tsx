@@ -10,6 +10,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Button from "../components/Button";
 import {Box, Grid} from "@material-ui/core";
 import {useTranslation} from "react-i18next";
+import LoroConf from "../../../LoroConf";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -79,10 +80,6 @@ export default function PrimarySearchAppBar() {
         setMobileMoreAnchorEl(event.currentTarget);
     };
 
-    const goToChromeStore = () => {
-        window.location.href = "https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp"
-    };
-
     const mobileMenuId = 'primary-search-account-menu-mobile';
     const renderMobileMenu = (
         <Menu
@@ -94,7 +91,7 @@ export default function PrimarySearchAppBar() {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
-            <MenuItem onClick={goToChromeStore}>
+            <MenuItem onClick={()=> LoroConf.ctaAddToChrome("AppBar")}>
                 <p>{t("Add to Chrome")}</p>
             </MenuItem>
             <MenuItem onClick={() => {

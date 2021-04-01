@@ -130,6 +130,16 @@ export default class LoroConf {
         return this.mapToTranslations[lanSrc][lanDst][word];
     }
 
+    public static ctaAddToChrome(origin:string) {
+        // @ts-ignore
+        plausible('AddToChrome',
+            {
+                props: {origin: origin},
+                callback:  window.location.href = "https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp"
+            }
+        );
+    }
+
 }
 
 export {}

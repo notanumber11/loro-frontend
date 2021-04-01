@@ -152,8 +152,7 @@ function ProductHero(props: WithStyles<typeof styles>) {
                             size="large"
                             variant="contained"
                             color="primary"
-                            component="a"
-                            href="https://chrome.google.com/webstore/detail/loro/ddficccfblbcldoekmniikjcfdcggidp"
+                            onClick={()=> LoroConf.ctaAddToChrome("ProductHero")}
                         >
                             <Typography align="center">
                                 {isDesktop ? t("Add to Chrome for free") : t("Add to Chrome")}
